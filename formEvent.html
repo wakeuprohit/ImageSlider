@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+      }
+      .main {
+        width: 100vw;
+      }
+      .center {
+        width: 80%;
+        margin: auto;
+        background-color: lightgray;
+        padding: 20px;
+      }
+      .center h3,
+      .center h4 {
+        background-color: gray;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      .center input {
+        width: 100%;
+        padding: 10px 0;
+        margin: 5px 0;
+        border: none;
+        border-bottom: 5px solid gray;
+      }
+      .center button {
+        background-color: gray;
+        color: white;
+        padding: 10px;
+        width: 100%;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="center">
+        <h3>Form Event</h3>
+        <h4 id="hname">Name:</h4>
+        <h4 id="hemail">Email:</h4>
+        <h4 id="hphone">Phone:</h4>
+        <h4 id="hdsg">Desgigantion:</h4>
+        <h4 id="hsal">Salary:</h4>
+        <h4 id="hcity">City:</h4>
+        <h4 id="hstate">State:</h4>
+        <form onsubmit="PostData(event)">
+          <input
+            type="text"
+            id="name"
+            placeholder="Name"
+            name="name"
+            onfocus="fun1(event)"
+            onblur="fun2(event)"
+            onchange="fun3(event)"
+          />
+          <input
+            type="email"
+            id="email"
+            placeholder="Email"
+            name="email"
+            onfocus="fun1(event)"
+            onblur="fun2(event)"
+            onchange="fun3(event)"
+          />
+          <input
+            type="text"
+            id="phone"
+            placeholder="Phone"
+            name="phone"
+            onfocus="fun1(event)"
+            onblur="fun2(event)"
+            onchange="fun3(event)"
+          />
+          <input
+            type="text"
+            id="dsg"
+            placeholder="Designation"
+            name="desg"
+            onfocus="fun1(event)"
+            onblur="fun2(event)"
+            onchange="fun3(event)"
+          />
+          <input
+            type="number"
+            id="sal"
+            placeholder="Salary"
+            name="salary"
+            onfocus="fun1(event)"
+            onblur="fun2(event)"
+            onchange="fun3(event)"
+          />
+          <input
+            type="text"
+            id="city"
+            placeholder="City"
+            name="city"
+            onfocus="fun1(event)"
+            onblur="fun2(event)"
+            onchange="fun3(event)"
+          />
+          <input
+            type="text"
+            id="state"
+            placeholder="State"
+            name="state"
+            onfocus="fun1(event)"
+            onblur="fun2(event)"
+            onchange="fun3(event)"
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      function fun1(event) {
+        event.target.style.background = "pink";
+      }
+      function fun2(event) {
+        event.target.style.backgroundColor = "lightgray";
+        event.target.style.color = "blue";
+      }
+      function fun3(event) {
+        let input = event.target;
+        let heading = document.getElementById(`h${input.id}`);
+        heading.innerHTML = `${input.placeholder} :${input.value}`;
+      }
+      function PostData(event){
+        event.preventDefault();
+        alert(`
+        Name: ${document.getElementById("name").value}
+        Email: ${document.getElementById("email").value}
+        Phone: ${document.getElementById("phone").value}
+        Designation: ${document.getElementById("dsg").value}
+        Salary: ${document.getElementById("sal").value}
+        City: ${document.getElementById("city").value} 
+        State: ${document.getElementById("state").value} 
+        `);
+      }
+    </script>
+  </body>
+</html>
